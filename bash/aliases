@@ -38,6 +38,7 @@ alias flos="cd ~/flyos/"
 alias fop="cd ~/flyos/flyos_portal/"
 alias blab="cd ~/dev/wildfire/blabberous/"
 alias koans="cd ~/dev/koans/"
+alias fun="cd ~/fun/"
 
 #Git
 alias gb='git branch'

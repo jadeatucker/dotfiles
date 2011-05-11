@@ -1,10 +1,10 @@
-#Dotfiles
+# Dotfiles
 Configuration files for bash, vim and ssh.
 
 Contains useful aliases, vim colorschemes and plugins, and customized
 bash prompt.
 
-##Getting Started
+## Getting Started
 
 Download the dotfiles with Git:
 

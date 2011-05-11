@@ -1,10 +1,12 @@
-# Dotfiles
+Dotfiles
+====
 Configuration files for bash, vim and ssh.
 
 Contains useful aliases, vim colorschemes and plugins, and customized
 bash prompt.
 
-## Getting Started
+Getting Started
+---
 
 Download the dotfiles with Git:
 
@@ -19,6 +21,7 @@ or symlink your bashrc file:
 
   ln -s ~/.bashrc ~/bin/dotfiles/bashrc
 
+---
 Symlink other dotfiles as needed:
 
 Vim:
@@ -30,6 +33,9 @@ Vim:
 Ssh:
 
   ln -s ~/.ssh/config ~/bin/dotfiles/ssh/config
+
+Wrapping up
+---
 
 Source your .bashrc file:
 

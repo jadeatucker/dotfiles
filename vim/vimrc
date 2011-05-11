@@ -10,6 +10,8 @@ filetype plugin indent on         " Turn on file type detection.
 
 runtime macros/matchit.vim        " Load the matchit plugin.
 
+set showmatch                     " Highlight matching brackets/braces/parenthesis
+
 set showcmd                       " Display incomplete commands.
 set showmode                      " Display the mode you're in.
 
@@ -82,5 +84,8 @@ map <leader>tm :tabmove
 
 " For the MakeGreen plugin and Ruby RSpec. Uncomment to use.
 autocmd BufNewFile,BufRead *_spec.rb compiler rspec
+
+" Set filetype to ruby for thor files
+au BufNewFile,BufRead *.thor set filetype=ruby
 
 

@@ -1,11 +1,7 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =9
-let g:netrw_dirhist_1='/Users/jtucker/dev/xfo/lib/pilot'
-let g:netrw_dirhist_2='/Users/jtucker/dev/xfo'
-let g:netrw_dirhist_3='/Users/jtucker/dev/xfo/lib/workers'
-let g:netrw_dirhist_4='/Users/jtucker/dev/xfo'
-let g:netrw_dirhist_5='/Users/jtucker/dev/xfo/lib/websocket'
-let g:netrw_dirhist_6='/Users/jtucker/dev/xfo'
-let g:netrw_dirhist_7='/Users/jtucker/dev/xfo/lib/websocket'
-let g:netrw_dirhist_8='/Users/jtucker/dev/fbo'
-let g:netrw_dirhist_9='/Users/jtucker/dev'
+let g:netrw_dirhist_cnt =5
+let g:netrw_dirhist_1='/Users/jtucker/dev'
+let g:netrw_dirhist_2='/Users/jtucker/dev/fos_dbr'
+let g:netrw_dirhist_3='/Users/jtucker/dev/xfo'
+let g:netrw_dirhist_4='/Users/jtucker/dev/fos_dbr'
+let g:netrw_dirhist_5='/Users/jtucker/dev'

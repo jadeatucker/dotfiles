@@ -12,7 +12,7 @@ alias h="cd ~/"
 alias rd="rm -r"
 alias rv="ruby -v"
 alias r9="rvm 1.9.2"
-alias r8="rvm default"
+alias r8="rvm system"
 alias tfo="tail -f log/*.log"
 
 #Utility
@@ -39,6 +39,7 @@ alias fop="cd ~/flyos/flyos_portal/"
 alias blab="cd ~/dev/wildfire/blabberous/"
 alias koans="cd ~/dev/koans/"
 alias fun="cd ~/fun/"
+alias pk="cd ~/dev/prime_kata/"
 
 #Git
 alias gb='git branch'

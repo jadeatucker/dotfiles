@@ -1,3 +1,5 @@
+IdentityFile ~/.ssh/sshKey_jtucker
+
 Host mucu
   HostName mucu
   User jtucker

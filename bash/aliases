@@ -8,12 +8,12 @@ alias cl="clear; ls -lhGt"
 alias l="ls -lhGt"
 alias e="exit"
 alias md="mkdir -p"
-alias h="cd ~/"
 alias rd="rm -r"
+
+#RVM
 alias rv="ruby -v"
 alias r9="rvm 1.9.2"
 alias r8="rvm system"
-alias tfo="tail -f log/*.log"
 
 #Utility
 alias reload='source ~/bin/dotfiles/bashrc'
@@ -21,21 +21,23 @@ alias ea='vi ~/bin/dotfiles/bash/aliases && reload' # Edit aliases
 alias ee="vi ~/bin/dotfiles/bash/env && reload"
 alias essh="vi ~/bin/dotfiles/ssh/config"
 alias key="eval \`ssh-agent\` && ssh-add ~/.ssh/sshKey_jtucker"
+alias h="history"
 
 #Start Programs
+alias ss="./script/server"
+alias sc="./script/console"
+alias tfo="tail -f log/*.log"
 alias mdev="mate ~/dev"
+
+#Dir aliases
 alias xfo="cd ~/dev/xfo"
 alias orm="cd ~/dev/fos_orm/"
 alias fs="cd ~/dev/fossil/"
 alias fbo="cd ~/dev/fbo/"
-alias ss="./script/server"
-alias sc="./script/console"
 alias dev="cd ~/dev"
 alias dm="cd ~/dev/fos_datamart"
 alias dbr="cd ~/dev/fos_dbr/"
 alias rot="cd ~/dev/rotbid/"
-alias flos="cd ~/flyos/"
-alias fop="cd ~/flyos/flyos_portal/"
 alias blab="cd ~/dev/wildfire/blabberous/"
 alias koans="cd ~/dev/koans/"
 alias fun="cd ~/fun/"
@@ -50,13 +52,12 @@ alias gd='git diff'
 alias gl='git pull'
 alias gnp="git-notpushed"
 alias gp='git push'
-alias gst='git status'
 alias gt='git status'
-alias g='git status'
 alias eg='vi .git/config'
 
 alias git_branch="git branch 2>/dev/null | grep -e '^*' | sed -E 's/^\* (.+)$/(\1) /'"
 
+#Custom functions
 function take {
   mkdir -p "$1"
   cd "$1"

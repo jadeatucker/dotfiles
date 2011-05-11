@@ -8,7 +8,8 @@ bash prompt.
 Getting Started
 ---
 
-Download the dotfiles with Git:
+Install the dotfiles with Git:
+
     cd ~/bin
     git clone git@github.com:jadeatucker/dotfiles.git
 
@@ -20,8 +21,13 @@ or symlink your bashrc file:
 
     ln -s ~/.bashrc ~/bin/dotfiles/bashrc
 
+You may need to load bashrc in your bash_profile.  Add the following to your
+.bash_rc file:
+
+    source ~/.bashrc
+
 ---
-Symlink other dotfiles as needed:
+Symlink other dotfiles as needed.
 
 Vim:
 
@@ -36,6 +42,7 @@ Ssh:
 Wrapping up
 ---
 
-Source your .bashrc file:
+Source your .bashrc file to pull in the new configurations:
 
     source ~/.bashrc
+

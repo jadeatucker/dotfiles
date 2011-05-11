@@ -21,10 +21,9 @@ or symlink your bashrc file:
 
     ln -s ~/.bashrc ~/bin/dotfiles/bashrc
 
-You may need to load bashrc in your bash_profile.  Add the following to your
-.bash_rc file:
+You may need to load bashrc in your bash_profile.  Add the following to ~/.bash_profile:
 
-    source ~/.bashrc
+    . ~/.bashrc
 
 ---
 Symlink other dotfiles as needed.
@@ -44,5 +43,5 @@ Wrapping up
 
 Source your .bashrc file to pull in the new configurations:
 
-    source ~/.bashrc
+    . ~/.bashrc
 

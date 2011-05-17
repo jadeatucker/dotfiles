@@ -52,7 +52,7 @@ set laststatus=2                  " Show the status line all the time
 set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{fugitive#statusline()}%{exists('*CapsLockStatusline')?CapsLockStatusline():''}%=%-16(\ %l,%c-%v\ %)%P
 
 set t_Co=256                    " Use 256 colors
-colorscheme vividchalk
+" colorscheme vividchalk
 set background=dark
 " Or use vividchalk
 "colorscheme railscasts
@@ -67,6 +67,28 @@ map <leader>tp :tabprevious<cr>
 map <leader>tf :tabfirst<cr>
 map <leader>tl :tablast<cr>
 map <leader>tm :tabmove
+
+" Bubble single lines
+ nmap <C-Up> [e
+ nmap <C-Down> ]e
+
+" Bubble multiple lines
+ vmap <C-Up> [egv
+ vmap <C-Down> ]egv
+
+" Edit .vimrc
+nmap <leader>v :tabedit $MYVIMRC<CR>
+
+" Toggle display of tabs and newline characters
+nmap <leader>l :set list!<CR>
+
+" Use textmate characters for tabstop and linending
+set listchars=tab:▸\ ,eol:¬
+
+" Source .vimrc after edit
+if has("autocmd")
+  autocmd bufwritepost .vimrc source $MYVIMRC;
+endif
 
 " Uncomment to use Jamis Buck's file opening plugin
 "map <Leader>t :FuzzyFinderTextMate<Enter>

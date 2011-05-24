@@ -1,10 +1,7 @@
 export PATH=$PATH:~/bin
 export PATH=$PATH:/var/lib/gems/1.8/bin
-export PVSW_ROOT=/usr/local/psql
-export PATH=$PATH:/usr/local/psql/bin
-export LD_LIBRARY_PATH=/usr/local/psql/lib:/usr/local/psql/bin:/usr/local/lib:/usr/lib
-export FOS_DBR_ENV=development
 export RAILS_ENV=development
-export FBO_ENV=development
+export RACK_ENV=development
+export EDITOR=mvim
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"

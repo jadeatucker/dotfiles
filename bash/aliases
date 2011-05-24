@@ -28,20 +28,13 @@ alias ss="./script/server"
 alias sc="./script/console"
 alias tfo="tail -f log/*.log"
 alias mdev="mate ~/dev"
+alias redis="redis-server /usr/local/etc/redis.conf"
 
 #Dir aliases
-alias xfo="cd ~/dev/xfo"
-alias orm="cd ~/dev/fos_orm/"
-alias fs="cd ~/dev/fossil/"
-alias fbo="cd ~/dev/fbo/"
 alias dev="cd ~/dev"
-alias dm="cd ~/dev/fos_datamart"
-alias dbr="cd ~/dev/fos_dbr/"
-alias rot="cd ~/dev/rotbid/"
-alias blab="cd ~/dev/wildfire/blabberous/"
-alias koans="cd ~/dev/koans/"
 alias fun="cd ~/fun/"
-alias pk="cd ~/dev/prime_kata/"
+alias wf="cd ~/dev/wildfire"
+
 
 #Git
 alias gb='git branch'
@@ -63,8 +56,8 @@ function take {
   cd "$1"
 }
 
-function cd {
-  builtin cd "$1"
-  ls 
-}
+#function cd {
+  #builtin cd "$1"
+  #ls 
+#}
 

@@ -29,14 +29,15 @@ alias sc="./script/console"
 alias tfo="tail -f log/*.log"
 alias mdev="mate ~/dev"
 alias redis="redis-server /usr/local/etc/redis.conf"
+alias be="bundle exec"
 
 #Dir aliases
 alias dev="cd ~/dev"
 alias fun="cd ~/fun/"
 alias wf="cd ~/dev/wildfire"
 
-
 #Git
+alias g='git'
 alias gb='git branch'
 alias gba='git branch -a'
 alias gc='git commit -v'

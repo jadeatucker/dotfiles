@@ -62,7 +62,7 @@ map <leader>tt :tabnew<cr>
 map <leader>te :tabedit
 map <leader>tc :tabclose<cr>
 map <leader>to :tabonly<cr>
-map <leader>tn :tabnext<cr>
+" map <leader>tn :tabnext<cr>
 map <leader>tp :tabprevious<cr>
 map <leader>tf :tabfirst<cr>
 map <leader>tl :tablast<cr>
@@ -76,6 +76,12 @@ map <leader>tm :tabmove
  vmap <C-Up> [egv
  vmap <C-Down> ]egv
 
+" Swap to previous buffer
+nmap <D-1> <leader>bejo
+
+" Swap to previous+1 buffer
+nmap <D-2> <leader>bejjo
+
 " Edit .vimrc
 nmap <leader>v :tabedit $MYVIMRC<CR>
 
@@ -84,6 +90,9 @@ nmap <leader>l :set list!<CR>
 
 " Use textmate characters for tabstop and linending
 set listchars=tab:▸\ ,eol:¬
+
+" Toggle NERDTree pane
+map <leader>tn :NERDTreeToggle<CR>
 
 " Source .vimrc after edit
 if has("autocmd")
@@ -110,4 +119,20 @@ autocmd BufNewFile,BufRead *_spec.rb compiler rspec
 " Set filetype to ruby for thor files
 au BufNewFile,BufRead *.thor set filetype=ruby
 
+
+" Tidy up whitespace
+function! <SID>StripTrailingWhitespaces()
+    " Preparation: save last search, and cursor position.
+    let _s=@/
+    let l = line(".")
+    let c = col(".")
+    " Do the business:
+    %s/\s\+$//e
+    " Clean up: restore previous search history, and cursor position
+    let @/=_s
+    call cursor(l, c)
+endfunction
+
+" Cleanup trailing whitespace after saving certain file types
+autocmd BufWritePre *.rb,*.js :call <SID>StripTrailingWhitespaces()
 

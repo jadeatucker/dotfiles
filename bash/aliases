@@ -62,3 +62,26 @@ function take {
   #ls 
 #}
 
+# cd ../*dirname*
+# cd ../../*dirname*
+# cd ../../../*dirname*
+# All the way to the root dir.
+function over {
+ if [ $1 ]
+ then
+   olddir=$PWD
+   while [ $PWD != '/' ]; do
+     cd ..
+     for dir in `find . -type d -name "*$1*" -maxdepth 1`; do
+       cd $dir
+       break 2
+     done
+   done
+   if [ $PWD == '/' ]; then
+     echo $1: not found
+     cd $olddir
+   fi
+ else
+   echo "usage: over partial-dir-name"
+ fi
+}

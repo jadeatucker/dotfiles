@@ -2,9 +2,4 @@ export PATH=$PATH:~/bin
 export PATH=$PATH:/var/lib/gems/1.8/bin
 export EDITOR=mvim
 
-if [ -f `brew --prefix`/etc/bash_completion ]; then
-  . `brew --prefix`/etc/bash_completion
-  complete -o default -F _git g
-fi
-
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"

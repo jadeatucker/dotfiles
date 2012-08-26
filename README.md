@@ -39,10 +39,12 @@ Ssh:
     ln -s ~/bin/dotfiles/ssh/config ~/.ssh/config
 
 Ruby:
+
     ln -s ~/bin/dotfiles/ruby/irbrc ~/.irbrc
     ln -s ~/bin/dotfiles/ruby/rvmrc ~/.rvmrc
 
 Git:
+
     ln -s ~/bin/dotfiles/gitconfig ~/.gitconfig
 
 Wrapping up

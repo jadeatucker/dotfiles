@@ -1,8 +1,8 @@
 [github]
-  user = jadeatucker
+	user = jadeatucker
 [user]
-  name = Jade Tucker
-  email = jadeatucker@gmail.com
+	name = Jade Tucker
+	email = jadeatucker@gmail.com
 [color]
   diff = auto
   status = auto

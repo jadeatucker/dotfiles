@@ -19,7 +19,7 @@ Edit your bashrc file and add the following at the end:
 
 or symlink your bashrc file:
 
-    ln -s ~/.bashrc ~/bin/dotfiles/bashrc
+    ln -s ~/bin/dotfiles/bashrc ~/.bashrc 
 
 You may need to load bashrc in your bash_profile.  Add the following to ~/.bash_profile:
 
@@ -30,13 +30,20 @@ Symlink other dotfiles as needed.
 
 Vim:
 
-    ln -s ~/.gvimrc ~/bin/dotfiles/vim/gvimrc
-    ln -s ~/.vimrc ~/bin/dotfiles/vim/vimrc
-    ln -s ~/.vim ~/bin/dotfiles/vim
+    ln -s ~/bin/dotfiles/vim/gvimrc ~/.gvimrc
+    ln -s ~/bin/dotfiles/vim/vimrc ~/.vimrc
+    ln -s ~/bin/dotfiles/vim ~/.vim
 
 Ssh:
 
-    ln -s ~/.ssh/config ~/bin/dotfiles/ssh/config
+    ln -s ~/bin/dotfiles/ssh/config ~/.ssh/config
+
+Ruby:
+    ln -s ~/bin/dotfiles/ruby/irbrc ~/.irbrc
+    ln -s ~/bin/dotfiles/ruby/rvmrc ~/.rvmrc
+
+Git:
+    ln -s ~/bin/dotfiles/gitconfig ~/.gitconfig
 
 Wrapping up
 ---

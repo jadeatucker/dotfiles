@@ -30,6 +30,7 @@ alias tfo="tail -f log/*.log"
 alias mdev="mate ~/dev"
 alias redis="redis-server /usr/local/etc/redis.conf"
 alias be="bundle exec"
+alias b="bundle"
 
 #Dir aliases
 alias dev="cd ~/dev"
@@ -48,8 +49,13 @@ alias gnp="git-notpushed"
 alias gp='git push'
 alias gt='git status'
 alias eg='vi .git/config'
+alias gs='git status'
 
 alias git_branch="git branch 2>/dev/null | grep -e '^*' | sed -E 's/^\* (.+)$/(\1) /'"
+
+# MD5Sum on Mac OSX
+alias md5='md5 -r'
+alias md5sum='md5 -r'
 
 #Custom functions
 function take {

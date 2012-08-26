@@ -1,0 +1,26 @@
+[github]
+  user = jadeatucker
+[user]
+  name = Jade Tucker
+  email = jadeatucker@gmail.com
+[color]
+  diff = auto
+  status = auto
+  branch = auto
+  interactive = auto
+  ui = true
+  pager = true
+
+[alias]
+  co = checkout
+  c = commit -v
+  ca = commit -a -v
+  s = status
+  l = log
+  d = diff
+  b = branch
+  a = add
+  p = push
+  cp = cherry-pick
+  m = merge
+  h = help

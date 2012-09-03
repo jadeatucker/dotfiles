@@ -10,7 +10,7 @@
 " [1] http://railscasts.com/about
 " [2] http://www.vim.org/scripts/script.php?script_id=2536
 
-set background=dark
+"set background=dark
 hi clear
 if exists("syntax_on")
   syntax reset

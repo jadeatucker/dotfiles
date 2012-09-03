@@ -53,10 +53,10 @@ set laststatus=2                  " Show the status line all the time
 set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{fugitive#statusline()}%{exists('*CapsLockStatusline')?CapsLockStatusline():''}%=%-16(\ %l,%c-%v\ %)%P
 
 set t_Co=256                    " Use 256 colors
-" colorscheme vividchalk
+" colorscheme railscasts
 set background=dark
 " Or use vividchalk
-"colorscheme railscasts
+colorscheme railscasts
 
 " Tab mappings.
 map <leader>tt :tabnew<cr>
@@ -74,6 +74,12 @@ nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k
 nnoremap <c-h> <c-w>h
 nnoremap <c-l> <c-w>l
+
+" Why aren't W and Q mapped?
+command WQ wq
+command Wq wq
+command W w
+command Q q
 
 
 " Bubble single lines
@@ -104,6 +110,12 @@ map <leader>tn :NERDTreeToggle<CR>
 
 " Shift focus to MacVim Alloy file browser
 map <leader>f :maca openFileBrowser:<CR>
+
+" Command-T
+nnoremap <silent> <Leader>gm :CommandT app/models/<CR>
+nnoremap <silent> <Leader>gc :CommandT app/controllers/<CR>
+nnoremap <silent> <Leader>gv :CommandT app/views/<CR>
+nnoremap <silent> <Leader>gs :CommandT spec/<CR>
 
 " Source .vimrc after edit
 if has("autocmd")

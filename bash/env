@@ -2,9 +2,15 @@ export PATH=$PATH:~/bin
 export PATH=$PATH:/var/lib/gems/1.8/bin
 export EDITOR=mvim
 
-if [ -f `brew --prefix`/etc/bash_completion ]; then
-  . `brew --prefix`/etc/bash_completion
-  complete -o default -F _git g
-fi
-
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+
+if [[ -e "${HOME}/.rbenv/bin/rbenv" ]]; then
+  RBENV_ROOT=$HOME/.rbenv
+elif [[ -e "/usr/local/rbenv/bin/rbenv" ]]; then
+  RBENV_ROOT=/usr/local/rbenv
+fi
+export RBENV_ROOT
+export PATH="${RBENV_ROOT}/bin:${PATH}"
+if [[ -n "${RBENV_ROOT}" ]]; then
+  eval "$($RBENV_ROOT/bin/rbenv init -)"
+fi

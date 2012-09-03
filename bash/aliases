@@ -26,9 +26,12 @@ alias h="history"
 alias redis="redis-server /usr/local/etc/redis.conf"
 alias be="bundle exec"
 alias b="bundle"
+alias v="vi ."
 
 #Dir aliases
 alias dev="cd ~/dev"
+alias apps="cd /code/app_suite"
+alias code="cd /code"
 
 #Git
 alias g='git'

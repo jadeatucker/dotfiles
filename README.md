@@ -41,11 +41,14 @@ Ssh:
 Ruby:
 
     ln -s ~/bin/dotfiles/ruby/irbrc ~/.irbrc
-    ln -s ~/bin/dotfiles/ruby/rvmrc ~/.rvmrc
+    ln -s ~/bin/dotfiles/ruby/gemrc ~/.gemrc
 
 Git:
 
     ln -s ~/bin/dotfiles/gitconfig ~/.gitconfig
+
+Tmux:
+    ln -s ~/bin/dotfiles/tmux.conf ~/.tmux.conf
 
 Wrapping up
 ---

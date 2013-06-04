@@ -48,6 +48,7 @@ Git:
     ln -s ~/bin/dotfiles/gitconfig ~/.gitconfig
 
 Tmux:
+
     ln -s ~/bin/dotfiles/tmux.conf ~/.tmux.conf
 
 Wrapping up

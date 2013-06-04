@@ -27,6 +27,8 @@ alias redis="redis-server /usr/local/etc/redis.conf"
 alias be="bundle exec"
 alias b="bundle"
 alias v="vi ."
+alias vi="vim"
+alias tmux="tmux -2"
 
 #Dir aliases
 alias dev="cd ~/dev"

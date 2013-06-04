@@ -1,8 +1,5 @@
 export PATH=$PATH:~/bin
-export PATH=$PATH:/var/lib/gems/1.8/bin
-export EDITOR=mvim
-
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+export EDITOR=vim
 
 if [[ -e "${HOME}/.rbenv/bin/rbenv" ]]; then
   RBENV_ROOT=$HOME/.rbenv

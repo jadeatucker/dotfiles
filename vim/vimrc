@@ -58,17 +58,6 @@ set background=dark
 " Or use vividchalk
 colorscheme railscasts
 
-" Tab mappings.
-map <leader>tt :tabnew<cr>
-map <leader>te :tabedit
-map <leader>tc :tabclose<cr>
-map <leader>to :tabonly<cr>
-" map <leader>tn :tabnext<cr>
-map <leader>tp :tabprevious<cr>
-map <leader>tf :tabfirst<cr>
-map <leader>tl :tablast<cr>
-map <leader>tm :tabmove
-
 " Move around splits with <c-hjkl>
 nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k
@@ -81,7 +70,6 @@ command Wq wq
 command W w
 command Q q
 
-
 " Bubble single lines
  nmap <C-Up> [e
  nmap <C-Down> ]e
@@ -89,12 +77,6 @@ command Q q
 " Bubble multiple lines
  vmap <C-Up> [egv
  vmap <C-Down> ]egv
-
-" Swap to previous buffer
-nmap <D-1> <leader>bejo
-
-" Swap to previous+1 buffer
-nmap <D-2> <leader>bejjo
 
 " Edit .vimrc
 nmap <leader>v :tabedit $MYVIMRC<CR>
@@ -106,42 +88,19 @@ nmap <leader>l :set list!<CR>
 set listchars=tab:▸\ ,eol:¬,trail:·
 
 " Toggle NERDTree pane
-map <leader>tn :NERDTreeToggle<CR>
+"map <leader>tn :NERDTreeToggle<CR>
 
-" Shift focus to MacVim Alloy file browser
-map <leader>f :maca openFileBrowser:<CR>
+" CtrlP
+set runtimepath^=~/.vim/bundle/ctrlp.vim
+map <leader>t :CtrlP<CR>
 
-" Command-T
-nnoremap <silent> <Leader>gm :CommandT app/models/<CR>
-nnoremap <silent> <Leader>gc :CommandT app/controllers/<CR>
-nnoremap <silent> <Leader>gv :CommandT app/views/<CR>
-nnoremap <silent> <Leader>gs :CommandT spec/<CR>
-
-" Source .vimrc after edit
-if has("autocmd")
-  autocmd bufwritepost .vimrc source $MYVIMRC;
-endif
-
-" Uncomment to use Jamis Buck's file opening plugin
-"map <Leader>t :FuzzyFinderTextMate<Enter>
-
-" Controversial...swap colon and semicolon for easier commands
-"nnoremap ; :
-"nnoremap : ;
-
-"vnoremap ; :
-"vnoremap : ;
-
-" Automatic fold settings for specific files. Uncomment to use.
-" autocmd FileType ruby setlocal foldmethod=syntax
-" autocmd FileType css  setlocal foldmethod=indent shiftwidth=2 tabstop=2
+imap jj <ESC>
 
 " For the MakeGreen plugin and Ruby RSpec. Uncomment to use.
 autocmd BufNewFile,BufRead *_spec.rb compiler rspec
 
 " Set filetype to ruby for thor files
 au BufNewFile,BufRead *.thor Cakefile set filetype=ruby
-
 
 " Tidy up whitespace
 function! <SID>StripTrailingWhitespaces()

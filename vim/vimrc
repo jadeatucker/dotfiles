@@ -52,6 +52,8 @@ set laststatus=2                  " Show the status line all the time
 " Useful status information at bottom of screen
 set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{fugitive#statusline()}%{exists('*CapsLockStatusline')?CapsLockStatusline():''}%=%-16(\ %l,%c-%v\ %)%P
 
+set relativenumber  " Show line numbers relative to cursor position
+
 set t_Co=256                    " Use 256 colors
 " colorscheme railscasts
 set background=dark
@@ -71,12 +73,12 @@ command W w
 command Q q
 
 " Bubble single lines
- nmap <C-Up> [e
- nmap <C-Down> ]e
+ nmap <Down> [e
+ nmap <Up> ]e
 
 " Bubble multiple lines
- vmap <C-Up> [egv
- vmap <C-Down> ]egv
+ vmap <Down> [egv
+ vmap <Up> ]egv
 
 " Edit .vimrc
 nmap <leader>v :tabedit $MYVIMRC<CR>
@@ -88,19 +90,36 @@ nmap <leader>l :set list!<CR>
 set listchars=tab:▸\ ,eol:¬,trail:·
 
 " Toggle NERDTree pane
-"map <leader>tn :NERDTreeToggle<CR>
+map <leader>n :NERDTreeToggle<CR>
 
-" CtrlP
-set runtimepath^=~/.vim/bundle/ctrlp.vim
-map <leader>t :CtrlP<CR>
-
+" use jj to get out of insert mode
 imap jj <ESC>
+
+" ultisnips snippet configuration, don't use <tab> with YouCompleteMe
+let g:UltiSnipsExpandTrigger="<c-j>"
+let g:UltiSnipsJumpForwardTrigger="<c-l>"
+let g:UltiSnipsJumpBackwardTrigger="<c-h>"
+let g:UltiSnipsListSnippets="<c-e>"
+
+" Copy license into buffer
+map <leader>@ :0r ~/.vim/license.txt <CR>
 
 " For the MakeGreen plugin and Ruby RSpec. Uncomment to use.
 autocmd BufNewFile,BufRead *_spec.rb compiler rspec
 
 " Set filetype to ruby for thor files
 au BufNewFile,BufRead *.thor Cakefile set filetype=ruby
+
+" vim-go plugin settings
+let g:go_auto_type_info = 0
+"let g:go_fmt_command = "gofmt"
+au Filetype go nnoremap <leader>r :GoRun %<CR>
+au Filetype go nnoremap <leader>s :sp <CR>:exe "GoDef"<CR>
+au Filetype go nnoremap <leader>gt :GoTest<CR>
+
+" colorcolumn - show column at 80 chars
+set colorcolumn=80
+hi ColorColumn ctermbg=darkgrey guibg=darkgrey
 
 " Tidy up whitespace
 function! <SID>StripTrailingWhitespaces()
@@ -116,90 +135,27 @@ function! <SID>StripTrailingWhitespaces()
 endfunction
 
 " Cleanup trailing whitespace after saving certain file types
-autocmd BufWritePre *.rb,*.js :call <SID>StripTrailingWhitespaces()
+autocmd BufWritePre *.rb,*.js,*.go :call <SID>StripTrailingWhitespaces()
+"function! g:UltiSnips_Complete()
+    "call UltiSnips#ExpandSnippet()
+    "if g:ulti_expand_res == 0
+        "if pumvisible()
+            "return "\<C-n>"
+        "else
+            "call UltiSnips#JumpForwards()
+            "if g:ulti_jump_forwards_res == 0
+               "return "\<TAB>"
+            "endif
+        "endif
+    "endif
+    "return ""
+"endfunction
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" RUNNING TESTS
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-map <leader>r :call RunTestFile()<cr>
-map <leader>R :call RunNearestTest()<cr>
-map <leader>a :call RunTests('')<cr>
-
-function! RunTestFile(...)
-    if a:0
-        let command_suffix = a:1
-    else
-        let command_suffix = ""
-    endif
-
-    " Run the tests for the previously-marked file.
-    let in_test_file = match(expand("%"), '\(.feature\|_spec.rb\)$') != -1
-    if in_test_file
-        call SetTestFile()
-    elseif !exists("t:grb_test_file")
-        return
-    end
-    call RunTests(t:grb_test_file . command_suffix)
-endfunction
-
-function! RunNearestTest()
-    let spec_line_number = line('.')
-    call RunTestFile(":" . spec_line_number . " -b")
-endfunction
-
-function! SetTestFile()
-    " Set the spec file that tests will be run for.
-    let t:grb_test_file=@%
-endfunction
-
-function! RunTests(filename)
-    " Write the file and run tests for the given filename
-    :w
-    :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
-    :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
-    :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
-    :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
-    :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
-    :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
-    if match(a:filename, '\.feature$') != -1
-        exec ":!script/features " . a:filename
-    else
-        if filereadable("script/test")
-            exec ":!script/test " . a:filename
-        elseif filereadable("Gemfile")
-            exec ":!bundle exec rspec --color " . a:filename
-        else
-            exec ":!rspec --color " . a:filename
-        end
-    end
-endfunction
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" SWITCH BETWEEN TEST AND PRODUCTION CODE
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-function! OpenTestAlternate()
-  let new_file = AlternateForCurrentFile()
-  exec ':e ' . new_file
-endfunction
-function! AlternateForCurrentFile()
-  let current_file = expand("%")
-  let new_file = current_file
-  let in_spec = match(current_file, '^spec/') != -1
-  let going_to_spec = !in_spec
-  let in_app = match(current_file, '\<controllers\>') != -1 || match(current_file, '\<models\>') != -1 || match(current_file, '\<views\>') != -1
-  if going_to_spec
-    if in_app
-      let new_file = substitute(new_file, '^app/', '', '')
-    end
-    let new_file = substitute(new_file, '\.rb$', '_spec.rb', '')
-    let new_file = 'spec/' . new_file
-  else
-    let new_file = substitute(new_file, '_spec\.rb$', '.rb', '')
-    let new_file = substitute(new_file, '^spec/', '', '')
-    if in_app
-      let new_file = 'app/' . new_file
-    end
-  endif
-  return new_file
-endfunction
-nnoremap <leader>. :call OpenTestAlternate()<cr>
+"au BufEnter * exec "inoremap <silent> " . g:UltiSnipsExpandTrigger . " <C-R>=g:UltiSnips_Complete()<cr>"
+"let g:UltiSnipsJumpForwardTrigger="<tab>"
+"let g:UltiSnipsListSnippets="<c-e>"
+" this mapping Enter key to <C-y> to chose the current highlight item
+" and close the selection list, same as other IDEs.
+" CONFLICT with some plugins like tpope/Endwise
+"inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+"

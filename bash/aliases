@@ -16,6 +16,8 @@ alias ea='vi ~/bin/dotfiles/bash/aliases && reload' # Edit aliases
 alias ee="vi ~/bin/dotfiles/bash/env && reload"
 alias essh="vi ~/bin/dotfiles/ssh/config"
 alias h="history"
+alias xmm="xmodmap ~/.xmodmaprc"
+alias gop="cd ~/src/gocode/src/"
 
 #Start Programs
 alias redis="redis-server /usr/local/etc/redis.conf"

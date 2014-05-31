@@ -1,5 +1,9 @@
-export PATH=$PATH:~/bin
+export PATH=$PATH:$HOME/bin
 export EDITOR=vim
+
+# Go
+export GOPATH=$HOME/src/gocode
+export PATH=$PATH:$GOPATH/bin
 
 if [[ -e "${HOME}/.rbenv/bin/rbenv" ]]; then
   RBENV_ROOT=$HOME/.rbenv

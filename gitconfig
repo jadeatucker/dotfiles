@@ -24,3 +24,7 @@
   cp = cherry-pick
   m = merge
   h = help
+[push]
+	default = simple
+[core]
+	excludesfile = /home/jtucker/.gitignore

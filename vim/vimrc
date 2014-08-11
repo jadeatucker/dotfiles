@@ -121,6 +121,11 @@ au Filetype go nnoremap <leader>gt :GoTest<CR>
 set colorcolumn=80
 hi ColorColumn ctermbg=darkgrey guibg=darkgrey
 
+" Emmet
+" Only on html/css
+let g:user_emmet_install_global = 0
+autocmd FileType html,css EmmetInstall
+
 " Tidy up whitespace
 function! <SID>StripTrailingWhitespaces()
     " Preparation: save last search, and cursor position.

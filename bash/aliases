@@ -18,6 +18,7 @@ alias essh="vi ~/bin/dotfiles/ssh/config"
 alias h="history"
 alias xmm="xmodmap ~/.xmodmaprc"
 alias gop="cd ~/src/gocode/src/"
+alias ack="ack-grep"
 
 #Start Programs
 alias redis="redis-server /usr/local/etc/redis.conf"
